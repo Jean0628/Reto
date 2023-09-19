@@ -1,6 +1,6 @@
 body{
-    background: rgb(238,174,202);
-    background: radial-gradient(circle,238,174,202,1)100%;
+    background: rgb(255,128,0.0);
+    background: radial-gradient(circle,258,174,202,1)100%;
 }
 main{
     width: 730px;
@@ -8,7 +8,7 @@ main{
     display: flex;
 }
 .section1{
-    background-color: rgb(255,255,255,0.2);
+    background-color: rgb(0 210 251 / 63%);
     padding: 0 10px 10px 10px;
     border-radius: 8px;
 }
@@ -29,7 +29,7 @@ button{
     height: auto;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    background-color: rgb(255,255,255,0.2);;
+    background-color: rgb(0 210 251 / 63%);
 }
 .estadisticas{
     border: 1px solid white;
