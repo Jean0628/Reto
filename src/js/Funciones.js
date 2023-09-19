@@ -1,61 +1,76 @@
-//Variables
+        // // Variables
+        // const card = document.querySelectorAll('.tarjeta');
+        // const startButtons = document.querySelectorAll('.start');
+        // const Cronometro = document.getElementById('Cronometro');
+        // const aciertosSpan = document.getElementById('C_aciertos');
+        // const movimientosSpan = document.getElementById('C_movimientos');
 
-const card = document.querySelectorAll('.card');
-const start = document.querySelectorAll('.start');
-const Cronometro = document.getElementById('Cronometro');
+        // let aciertos = 0;
+        // let movimientos = 0;
 
-//Eventos 
-document.addEventListener('DOMContesntLoades', ()=>{
-    inicar();
-})
+        // // Eventos
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     iniciar();
+        // });
 
-start.forEach(start => {
-    start.addEventListener('click', () => {
-        cronometro();
-    });
-});
-//fin de los eventos
+        // startButtons.forEach(startButton => {
+        //     startButton.addEventListener('click', () => {
+        //         cronometro();
+        //     });
+        // });
 
+        // // Funciones
+        // function iniciar() {
+        //     for (let i = 0; i < card.length; i++) {
+        //         card[i].disabled = true;
+        //     }
+        // }
 
-//Funcion 
-function iniciar(){
-    for (let i = 0; i < card.length; i++){
-        card[i].disabled = true;
-    }
-}
+        // function desbloquearCards() {
+        //     for (let i = 0; i < card.length; i++) {
+        //         card[i].disabled = false;
+        //     }
+        // }
 
-function desbloquearCards(){
-    for (let i = 0; i < card.length; i++){
-        card[i].disabled = false;
-    }
-}
+        // function cronometro() {
+        //     desbloquearCards();
+        //     let time = 60; // Cambié el tiempo a 60 segundos
+        //     startButtons.forEach(startButton => {
+        //         startButton.disabled = true; // Deshabilita los botones de inicio una vez que se inicia el juego
+        //     });
+        //     const contador = setInterval(() => {
+        //         time--;
+        //         Cronometro.innerHTML = time;
+        //         if (time === 0) {
+        //             clearInterval(contador);
+        //             Swal.fire({
+        //                 icon: 'error',
+        //                 title: 'Oops...',
+        //                 text: '¡Se te acabó el tiempo!',
+        //             }).then((result) => {
+        //                 if (result.isConfirmed) {
+        //                     location.reload();
+        //                 }
+        //             });
+        //         }
+        //     }, 1000);
+        // }
 
-function cronometro(){
-    desbloquearCards();
-    let time = 5;
-    start.forEach(start => {
-        start.classList.add('disable');
-    });
-    const contador = setInterval(()=> {
-        time--
-        Cronometro.innerHTML = time;
-        if (time == 0){
-            clearInterval(contador);
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '¡Se te acabó el tiempo!',
-            })
-            .then((result) =>{
-                if(result.isConfirmed){ // Corregido "isConfirmed"
-                    location.reload();
-                }
-            })
-        }
-    }, 1000);
-}
+        // function aumentarAciertos() {
+        //     aciertos++;
+        //     aciertosSpan.textContent = aciertos;
+        // }
+
+        // function aumentarMovimientos() {
+        //     movimientos++;
+        //     movimientosSpan.textContent = movimientos;
+        // }
 // JS 
 // parte lógica
+let aciertos = 0;
+let movimientos = 0;
+let tiempoInicio;
+let tiempoInterval;
 
     let iconos = []
     let selecciones = []
@@ -70,8 +85,8 @@ function cronometro(){
             '<img src="https://i.ibb.co/SmVF5vB/00.png" width="100%">',
             '<img src="https://i.ibb.co/y6z683V/00.png" width="100%">',
             '<img src="https://i.ibb.co/85r8z0f/9978a389246e31ed58bf4ebfc0cbe7ec.png" width="100%">',
-            '<img src="https://i.ibb.co/mC2pqc5/00.jpg" width="100%">',
-            '<img src="https://i.ibb.co/JQBmBXN/00.png" width="100%">',
+            '<img src="https://i.ibb.co/mC2pqc5/00.jpg" width="70%">',
+            '<img src="https://i.ibb.co/JQBmBXN/00.png" width="70%">',
             '<img src="https://i.ibb.co/z5ZgQwN/00.png" width="100%">',
             '<img src="https://i.ibb.co/dJZgXW2/image-snorlaxpng-pokemon-shuffle-wiki-fandom-powered-by-wikia-snorlax-png-256-256.png" width="100%">',
             '<img src="https://i.ibb.co/LJTbjXd/00.gif" width="100%">',
@@ -80,11 +95,15 @@ function cronometro(){
     }
 
     function generarTablero() {
-        cargarIconos()
-        let len = iconos.length
-        selecciones = []
-        let tablero = document.getElementById("tablero")
-        let tarjetas = []
+        cargarIconos();
+        let len = iconos.length;
+        selecciones = [];
+        aciertos = 0; // Reiniciar aciertos
+        movimientos = 0; // Reiniciar movimientos
+        actualizarEstadisticas(); // Actualizar las estadísticas en el HTML
+        iniciarCronometro(); // Iniciar el cronómetro
+        let tablero = document.getElementById("tablero");
+        let tarjetas = [];
         
         for (let i = 0; i < len*2; i++) {
             tarjetas.push(`
@@ -105,6 +124,20 @@ function cronometro(){
         }
         tarjetas.sort(() => Math.random() - 0.5)
         tablero.innerHTML = tarjetas.join(" ")
+    }
+    function actualizarEstadisticas() {
+        document.getElementById("C_aciertos").textContent = aciertos;
+        document.getElementById("C_movimientos").textContent = movimientos;
+    }
+    function iniciarCronometro() {
+        tiempoInicio = new Date().getTime();
+        tiempoInterval = setInterval(actualizarTiempo, 1000);
+    }
+    
+    function actualizarTiempo() {
+        const tiempoActual = new Date().getTime();
+        const tiempoTranscurrido = (tiempoActual - tiempoInicio) / 1000;
+        document.getElementById("Cronometro").textContent = tiempoTranscurrido.toFixed(0);
     }
 
     function seleccionarTarjeta(i) {
