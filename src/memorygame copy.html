@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>juego de memoria</title>
 </head>
@@ -10,10 +11,22 @@
     <main>
         <section class="section1">
             <h1>JUEGO DE MEMORIA</h1>
-            <table>
+    <!-- HTML -->
+    <!-- estructura visual -->
+
+    <div id="tablero">
+        
+    </div>
+
+    <br>
+
+    <div class="nuevo-juego" onclick="generarTablero()">
+        Nuevo Juego
+    </div>
+            <!-- <table>
 
                 <tr>
-                    <td> <button id="0" onclick="" class="card"></button></td>
+                    <td> <button id="0" onclick="" class="card" ></button></td>
                     <td> <button id="1" onclick="" class="card"></button></td>
                     <td> <button id="2" onclick="" class="card"></button></td>
                     <td> <button id="3" onclick="" class="card"></button></td>
@@ -40,17 +53,18 @@
                     <td> <button id="15" onclick="" class="card"></button></td>
                 </tr>
 
-            </table>
+            </table> -->
         </section>
 
         <section class="section2">
             <h2 class="Aciertos" class="estadisticas">Aciertos: <span id="C_aciertos">0</span></h2>
-            <h2 class="T-restante" class="estadisticas">Tiempo: <span id="Cronometro">60</span>segundos</h2>
+            <h2 class="T-restante" class="estadisticas">Tiempo: <span id="Cronometro"></span> segundos</h2>
             <h2 class="Movimientos" class="estadisticas">Movimientos: <span id="C_movimientos">0</span></h2>
             <button class="start">Iniciar</button>
         </section>
     </main>
-    <script src="Funciones.js"></script>
+    <script src="js/Funciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 
         <!-- Globos de la esquina derecha -->
         <div class="balloon right-corner">
