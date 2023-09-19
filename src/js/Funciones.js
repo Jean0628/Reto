@@ -32,7 +32,11 @@ let tiempoInterval;
         aciertos = 0; // Reiniciar aciertos
         movimientos = 0; // Reiniciar movimientos
         actualizarEstadisticas(); // Actualizar las estadísticas en el HTML
-        iniciarCronometro(); // Iniciar el cronómetro
+        iniciarCronometro(() => {
+            // Función de devolución de llamada: se ejecutará cuando el cronómetro llegue a cero
+            // Coloca aquí cualquier acción que deseas realizar al finalizar el cronómetro
+            alert("¡Se acabó el tiempo!");
+        });
         let tablero = document.getElementById("tablero");
         let tarjetas = [];
         
