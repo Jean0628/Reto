@@ -1,6 +1,9 @@
 body{
     background: transparent;
     background: radial-gradient(circle,258,174,202,1)100%;
+    background-image: url('/src/assets/IMG/fondo juego.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 main{
     width: 730px;
@@ -62,17 +65,16 @@ footer{
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            position: absolute;
-            bottom: 40px;
-            margin-left: 5%;
+            margin-left: 250px;
+            margin-bottom: 60px;
             animation: floatUp 4s linear infinite; /* Animación */
         }
         .left-corner {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            position: absolute;
-            bottom: 40px;
+            margin-left: 1550px;
+            margin-bottom: 60px;
             animation: floatUp 4s linear infinite; /* Animación */
         }
 
