@@ -29,4 +29,5 @@ function desbloquearCards(){
 
 function cronometro(){
     desbloquearCards()
+    let time = 60
 }
