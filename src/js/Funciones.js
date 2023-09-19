@@ -29,4 +29,10 @@ function desbloquearCards(){
 
 function cronometro(){
     desbloquearCards()
+    let time = 60;
+    start.classList.add('disable');
+    setInterval(()=> {
+        
+    },1000)
+
 }
