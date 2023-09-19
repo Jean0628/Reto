@@ -35,13 +35,21 @@ button{
 button:hover{
     cursor: pointer;
 }
+h2{
+    color: white;
+    font-size: 25px;
+    height: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
 .section2{
+    border: 1px solid white;
     padding: 0 20px;
     width: 250px;
     height: auto;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    background-color: rgb(255,128,0.0);
+    background: linear-gradient(rgba(255, 0, 0, 0.672), rgba(255, 0, 208, 0.393));
 }
 .estadisticas{
     border: 1px solid white;
