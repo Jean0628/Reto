@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>juego de memoria</title>
 </head>
@@ -45,11 +46,24 @@
 
         <section class="section2">
             <h2 class="Aciertos" class="estadisticas">Aciertos: <span id="C_aciertos">0</span></h2>
-            <h2 class="T-restante" class="estadisticas">Tiempo: <span id="Cronometro"></span>segundos</h2>
+            <h2 class="T-restante" class="estadisticas">Tiempo: <span id="Cronometro"></span> segundos</h2>
             <h2 class="Movimientos" class="estadisticas">Movimientos: <span id="C_movimientos">0</span></h2>
             <button class="start">Iniciar</button>
         </section>
     </main>
     <script src="js/Funciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
+        <!-- Globos de la esquina derecha -->
+        <div class="balloon right-corner">
+            <img src="imagen/logo_sena.png" alt="#" class="img-encabezado">
+        </div>
+        <div class="balloon right-corner"></div>
+        <div class="balloon right-corner"></div>
+    
+        <!-- Globos de la esquina izquierda -->
+        <div class="balloon left-corner"></div>
+        <div class="balloon left-corner"></div>
+        <div class="balloon left-corner"></div>
 </body>
 </html>
