@@ -1,0 +1,37 @@
+body{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle,238,174,202,1)100%;
+}
+main{
+    width: 730px;
+    margin: 100px auto 50px;
+    display: flex;
+}
+.section1{
+    background-color: rgb(255,255,255,0.2);
+    padding: 0 10px 10px 10px;
+    border-radius: 8px;
+}
+h1{
+    text-align: center;
+}
+button{
+    height: 100px;
+    width: 100px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.section2{
+    padding: 0 20px;
+    width: 250px;
+    height: auto;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgb(255,255,255,0.2);;
+}
+.estadisticas{
+    border: 1px solid white;
+    height: 100px;
+}
