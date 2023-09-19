@@ -1,7 +1,7 @@
 body{
     background: transparent;
     background: radial-gradient(circle,258,174,202,1)100%;
-    background-image: url('/src/assets/IMG/fondo juego.jpg');
+    background-image: url('assets/IMG/fondo juego.jpg');
     background-size: cover;
     background-attachment: fixed;
 }

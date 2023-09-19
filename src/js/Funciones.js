@@ -44,9 +44,14 @@ function cronometro(){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: '¡Se te acabo el tiempo!',
-              })
+                text: '¡Se te acabó el tiempo!',
+            })
+            .then((result) =>{
+                if(result.isConfirmed){ // Corregido "isConfirmed"
+                    location.reload();
+                }
+            })
         }
-    },1000)
-
+    }, 1000);
 }
+
