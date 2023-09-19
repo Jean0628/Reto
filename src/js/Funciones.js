@@ -1,70 +1,3 @@
-        // // Variables
-        // const card = document.querySelectorAll('.tarjeta');
-        // const startButtons = document.querySelectorAll('.start');
-        // const Cronometro = document.getElementById('Cronometro');
-        // const aciertosSpan = document.getElementById('C_aciertos');
-        // const movimientosSpan = document.getElementById('C_movimientos');
-
-        // let aciertos = 0;
-        // let movimientos = 0;
-
-        // // Eventos
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     iniciar();
-        // });
-
-        // startButtons.forEach(startButton => {
-        //     startButton.addEventListener('click', () => {
-        //         cronometro();
-        //     });
-        // });
-
-        // // Funciones
-        // function iniciar() {
-        //     for (let i = 0; i < card.length; i++) {
-        //         card[i].disabled = true;
-        //     }
-        // }
-
-        // function desbloquearCards() {
-        //     for (let i = 0; i < card.length; i++) {
-        //         card[i].disabled = false;
-        //     }
-        // }
-
-        // function cronometro() {
-        //     desbloquearCards();
-        //     let time = 60; // Cambié el tiempo a 60 segundos
-        //     startButtons.forEach(startButton => {
-        //         startButton.disabled = true; // Deshabilita los botones de inicio una vez que se inicia el juego
-        //     });
-        //     const contador = setInterval(() => {
-        //         time--;
-        //         Cronometro.innerHTML = time;
-        //         if (time === 0) {
-        //             clearInterval(contador);
-        //             Swal.fire({
-        //                 icon: 'error',
-        //                 title: 'Oops...',
-        //                 text: '¡Se te acabó el tiempo!',
-        //             }).then((result) => {
-        //                 if (result.isConfirmed) {
-        //                     location.reload();
-        //                 }
-        //             });
-        //         }
-        //     }, 1000);
-        // }
-
-        // function aumentarAciertos() {
-        //     aciertos++;
-        //     aciertosSpan.textContent = aciertos;
-        // }
-
-        // function aumentarMovimientos() {
-        //     movimientos++;
-        //     movimientosSpan.textContent = movimientos;
-        // }
 // JS 
 // Declarar variables globales
 let iconos = [];
@@ -129,6 +62,8 @@ let tiempoInterval;
         if (tarjeta.style.transform != "rotateY(180deg)") {
             tarjeta.style.transform = "rotateY(180deg)"
             selecciones.push(i)
+            aumentarmovimientos(); // Actualizar las estadísticas en el HTML
+            actualizarEstadisticas();    
         }
         if (selecciones.length == 2) {
             deseleccionar(selecciones)
@@ -145,9 +80,28 @@ let tiempoInterval;
                 let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
                 tarjeta1.style.transform = "rotateY(0deg)"
                 tarjeta2.style.transform = "rotateY(0deg)"
-            }else{
+            } else {
                 trasera1.style.background = "plum"
                 trasera2.style.background = "plum"
+                aumentarAciertos(); // Incrementar aciertos
+                actualizarEstadisticas();    
+                // Comprobar si se han encontrado todos los pares
+                if (aciertos == iconos.length / 2) {
+                    // Detener el cronómetro
+                    clearInterval(tiempoInterval);
+    
+                    // Mostrar un mensaje de victoria usando SweetAlert2
+                    Swal.fire({
+                        title: "¡Felicidades!",
+                        text: `Has completado el juego en ${movimientos} movimientos y ${document.getElementById("Cronometro").textContent} segundos.`,
+                        icon: "success",
+                        confirmButtonText: "Reiniciar",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload(); // Reiniciar el juego
+                        }
+                    });
+                }
             }
         }, 1000);
     }
@@ -156,6 +110,7 @@ let tiempoInterval;
         document.getElementById("C_aciertos").textContent = aciertos;
         document.getElementById("C_movimientos").textContent = movimientos;
     }
+    
     function iniciarCronometro() {
         tiempoInicio = new Date().getTime();
         tiempoInterval = setInterval(actualizarTiempo, 1000);
@@ -166,27 +121,10 @@ let tiempoInterval;
         const tiempoTranscurrido = (tiempoActual - tiempoInicio) / 1000;
         document.getElementById("Cronometro").textContent = tiempoTranscurrido.toFixed(0);
     }
-
-            function cronometro() {
-            desbloquearCards();
-            let time = 5; // Cambié el tiempo a 60 segundos
-            startButtons.forEach(startButton => {
-                startButton.disabled = true; // Deshabilita los botones de inicio una vez que se inicia el juego
-            });
-            const contador = setInterval(() => {
-                time--;
-                Cronometro.innerHTML = time;
-                if (time === 0) {
-                    clearInterval(contador);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: '¡Se te acabó el tiempo!',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            location.reload();
-                        }
-                    });
-                }
-            }, 1000);
-        }
+    
+    function aumentarAciertos() {
+        aciertos++;
+    }
+    function aumentarmovimientos() {
+        movimientos++;
+    }

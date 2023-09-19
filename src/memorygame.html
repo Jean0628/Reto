@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>juego de memoria</title>
 </head>
 <body>
@@ -15,9 +16,9 @@
 
     <main>
         <section class="section2">
-            <h2 class="Aciertos" id="C_aciertos" class="estadisticas">Aciertos: <span id="C_aciertos">0</span></h2>
-            <h2 class="T-restante" class="estadisticas">Tiempo: <span id="Cronometro"></span> segundos</h2>
-            <h2 class="Movimientos" id="C_movimientos" class="estadisticas">Movimientos: <span id="C_movimientos">0</span></h2>
+            <h2>Aciertos: <h2 class="Aciertos" id="C_aciertos" class="estadisticas"><span id="C_aciertos">0</span></h2></h2>
+            <h2>Tiempo: <h2 class="T-restante" class="estadisticas"><span id="Cronometro"></span> segundos</h2></h2>
+            <h2>Movimientos: <h2 class="Movimientos" id="C_movimientos" class="estadisticas"><span id="C_movimientos">0</span></h2></h2>
             <button class="start" onclick="generarTablero()">Iniciar</button>
         </section>
     </main>
@@ -33,5 +34,6 @@
         <div class="balloon left-corner">
             <img src="assets/IMG/imagen2.png" alt="#" class="img">
         </div>
+        <script src="./api/apis.js"></script>
 </body>
 </html>

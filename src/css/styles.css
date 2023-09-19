@@ -1,5 +1,5 @@
 body{
-    background: transparent;
+    /* background: transparent; */
     background: radial-gradient(circle,258,174,202,1)100%;
     background-image: url('/src/assets/IMG/fondojuego.jpg');
     background-size: cover;
@@ -7,7 +7,7 @@ body{
     padding: 0;
     margin: 0;
     -webkit-perspective: 1000;
-    background: powderblue;
+    /* background: powderblue; */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -126,7 +126,7 @@ footer{
     
             div {
                 display: inline-block;
-                
+
             }
     
             .area-tarjeta,
@@ -160,7 +160,7 @@ footer{
             }
     
             .superior {
-                background: linear-gradient(orange, darkorange);
+                background: linear-gradient(rgba(0, 0, 232, 0.652), rgba(20, 20, 20, 0.589));
             }
     
             @keyframes iniciar {
