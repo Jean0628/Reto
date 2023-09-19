@@ -58,24 +58,33 @@ footer{
     opacity: 50%;
 }
         /* Estilos para el globo */
-        .balloon {
+        .right-corner {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             position: absolute;
-            bottom: -50px;
-            animation: floatUp 5s linear infinite; /* Animación */
+            bottom: 40px;
+            margin-left: 5%;
+            animation: floatUp 4s linear infinite; /* Animación */
+        }
+        .left-corner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 40px;
+            animation: floatUp 4s linear infinite; /* Animación */
         }
 
         /* Definición de la animación */
         @keyframes floatUp {
             0% {
-                transform: translateY(0) rotate(0);
+                transform: translateY(0) rotate(360deg);
                 opacity: 1;
             }
             100% {
-                transform: translateY(-800px) rotate(360deg); /* Altura máxima de desplazamiento y rotación completa */
-                opacity: 0;
+                transform: translateY(-900px) rotate(-360deg); /* Altura máxima de desplazamiento y rotación completa */
+                opacity: 1;
             }
         }
 
@@ -88,5 +97,5 @@ footer{
         /* Estilos para los globos de la esquina izquierda */
         .left-corner {
             left: 0;
-            animation-delay: 2s; /* Retraso en la animación para que no salgan todos al mismo tiempo */
+            animation-delay: 1s; /* Retraso en la animación para que no salgan todos al mismo tiempo */
         }
