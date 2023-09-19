@@ -27,6 +27,9 @@ button{
     font-weight: bold;
     cursor: pointer;
 }
+button:hover{
+    cursor: pointer;
+}
 .section2{
     padding: 0 20px;
     width: 250px;
@@ -42,16 +45,7 @@ button{
     padding: 8px 20px;
     box-sizing: border-box;
 }
-.start{
-    height: 50px;
-    width: 250px;
-    font-size: 15px;
-    margin-bottom: 20px;
-    color: white;
-    background-color: #4286f4;
-    border: 1px solid white;
-    border-radius: 8px;
-}
+
 footer{
     cursor: not-allowed;
     opacity: 50%;
