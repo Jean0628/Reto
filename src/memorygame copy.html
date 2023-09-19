@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>juego de memoria</title>
+</head>
+<body>
+    <br>
+    <div id="tablero"></div>
+    <br>
+    <br>
+
+    <main>
+        <section class="section2">
+            <h2 class="Aciertos" class="estadisticas">Aciertos: <span id="C_aciertos">0</span></h2>
+            <h2 class="T-restante" class="estadisticas">Tiempo: <span id="Cronometro"></span> segundos</h2>
+            <h2 class="Movimientos" class="estadisticas">Movimientos: <span id="C_movimientos">0</span></h2>
+            <button class="start" onclick="generarTablero()">Iniciar</button>
+        </section>
+    </main>
+    <script src="js/Funciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
+        <!-- Globos de la esquina derecha -->
+        <div class="balloon right-corner">
+            <img src="assets/IMG/imagen1.png" alt="#" class="img">
+        </div>
+    
+        <!-- Globos de la esquina izquierda -->
+        <div class="balloon left-corner">
+            <img src="assets/IMG/imagen2.png" alt="#" class="img">
+        </div>
+</body>
+</html>
