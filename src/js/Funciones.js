@@ -50,3 +50,15 @@ function cronometro(){
     },1000)
 
 }
+
+function mostrarImagen(button) {
+    // Obtener el atributo "data-image" del botón
+    const imageUrl = button.getAttribute('data-image');
+
+    // Mostrar la imagen en un cuadro de diálogo o donde desees
+    Swal.fire({
+        imageUrl: imageUrl,
+        imageAlt: 'src/assets/IMG/computador.jpg',
+        showConfirmButton: false
+    });
+}
