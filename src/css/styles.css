@@ -17,8 +17,7 @@ body{
     font-family: calibri;
 }
 main{
-    width: 730px;
-    margin: 100px auto 50px;
+    margin: 15px  50px;
     display: flex;
     align-items: center;
 }
@@ -31,6 +30,9 @@ button{
     font-size: 40px;
     color: white;
     font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
     cursor: pointer;
 }
 .section2{
@@ -48,7 +50,7 @@ button{
     padding: 8px 20px;
     box-sizing: border-box;
 }
-.start{
+.start {
     height: 50px;
     width: 250px;
     font-size: 15px;
@@ -57,7 +59,9 @@ button{
     background-color: #4286f4;
     border: 1px solid white;
     border-radius: 8px;
+
 }
+
 footer{
     cursor: not-allowed;
     opacity: 50%;

@@ -95,15 +95,11 @@ let tiempoInterval;
     }
 
     function generarTablero() {
-        cargarIconos();
-        let len = iconos.length;
-        selecciones = [];
-        aciertos = 0; // Reiniciar aciertos
-        movimientos = 0; // Reiniciar movimientos
-        actualizarEstadisticas(); // Actualizar las estadísticas en el HTML
-        iniciarCronometro(); // Iniciar el cronómetro
-        let tablero = document.getElementById("tablero");
-        let tarjetas = [];
+        cargarIconos()
+        let len = iconos.length
+        selecciones = []
+        let tablero = document.getElementById("tablero")
+        let tarjetas = []
         
         for (let i = 0; i < len*2; i++) {
             tarjetas.push(`
@@ -124,20 +120,6 @@ let tiempoInterval;
         }
         tarjetas.sort(() => Math.random() - 0.5)
         tablero.innerHTML = tarjetas.join(" ")
-    }
-    function actualizarEstadisticas() {
-        document.getElementById("C_aciertos").textContent = aciertos;
-        document.getElementById("C_movimientos").textContent = movimientos;
-    }
-    function iniciarCronometro() {
-        tiempoInicio = new Date().getTime();
-        tiempoInterval = setInterval(actualizarTiempo, 1000);
-    }
-    
-    function actualizarTiempo() {
-        const tiempoActual = new Date().getTime();
-        const tiempoTranscurrido = (tiempoActual - tiempoInicio) / 1000;
-        document.getElementById("Cronometro").textContent = tiempoTranscurrido.toFixed(0);
     }
 
     function seleccionarTarjeta(i) {
