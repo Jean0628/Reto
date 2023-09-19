@@ -9,7 +9,7 @@ document.addEventListener('DOMContesntLoades', ()=>{
 })
 
 start.addEventListener('click', () =>{
-
+    cronometro();
 })
 //fin de los eventos
 
@@ -28,6 +28,16 @@ function desbloquearCards(){
 }
 
 function cronometro(){
-    desbloquearCards()
-    let time = 60
+    desbloquearCards();
+    let time = 5;
+    start.classList.add('disable');
+    const contador = setInterval(()=> {
+        time--
+        Cronometro.innerHTML = time;
+        if (time == 0){
+            clearInterval(contador);
+            console.log('se te acabo el tiempo')
+        }
+    },1000)
+
 }
